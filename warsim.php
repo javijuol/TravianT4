@@ -72,20 +72,21 @@ if($message->unread) {
 							<div class="contentTitle">&nbsp;</div>
 <div class="contentContainer">
 <div id="content"  class="warsim">
-<h1>Harcszimulátor</h1>
+<h1><?php echo $lang['WARSIM']['Combat_Simulator']; ?>
+</h1>
 <form action="warsim.php" method="post">
 <?php
 if(isset($_POST['result'])) {
     $target = isset($_POST['target'])? $_POST['target'] : array();
     $tribe = isset($_POST['mytribe'])? $_POST['mytribe'] : $session->tribe;
-    echo '<h4 class="round">Harctípus ';
-    echo $form->getValue('ktyp') == 0? "Normál" : "Rablótámadás";
+    echo '<h4 class="round">'.$lang['WARSIM']['Attacker'];
+    echo $form->getValue('ktyp') == 0? $lang['WARSIM']['Normal'] : $lang['WARSIM']['Raid'];
     echo "</h4>";
     include("Templates/Simulator/res_a".$tribe.".tpl");
     foreach($target as $tar) {
         include("Templates/Simulator/res_d".$tar.".tpl");
     }
-    echo '<h4 class="round">Raid konfiguráció</h4>';
+    echo '<h4 class="round">'.$lang['WARSIM']['Battle_Type'].'</h4>';
     if (isset($_POST['result'][3])&&isset($_POST['result'][4])){
         if ($_POST['result'][4]>$_POST['result'][3]){
             echo "";
@@ -104,7 +105,7 @@ $target = isset($_POST['target'])? $_POST['target'] : array();
 $tribe = isset($_POST['mytribe'])? $_POST['mytribe'] : $session->tribe;
 if(count($target) > 0) {
     include("Templates/Simulator/att_".$tribe.".tpl");
-	echo '<div id="defender"><div class="fighterType"><div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Védők</div></div></div><div class="clear"></div>';
+	echo '<div id="defender"><div class="fighterType"><div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Védok</div></div></div><div class="clear"></div>';
 
     foreach($target as $tar) {
         include("Templates/Simulator/def_".$tar.".tpl");
@@ -118,7 +119,9 @@ if(count($target) > 0) {
 			<tr>
 				<td>
 					<div class="fighterType">
-						<div class="boxes boxesColor red"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Támadók	</div>
+						<div class="boxes boxesColor red"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">
+						<?php echo $lang['WARSIM']['Battle_Type']; ?>
+						</div>
 				</div>
 					</div>
 					<div class="clear"></div>
@@ -132,7 +135,7 @@ if(count($target) > 0) {
 
 				<td>
 					<div class="fighterType">
-						<div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Védők	</div>
+						<div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Védok	</div>
 				</div>
 					</div>
 					<div class="clear"></div>
@@ -147,7 +150,7 @@ if(count($target) > 0) {
 
 				<td>
 					<div class="fighterType">
-						<div class="boxes boxesColor darkgray"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Harctípus	</div>
+						<div class="boxes boxesColor darkgray"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents"><?php echo $lang['WARSIM']['Battle_Type']; ?>	</div>
 				</div>
 					</div>
 					<div class="clear"></div>
@@ -155,7 +158,7 @@ if(count($target) > 0) {
 					<div class="choice">
                     <label><input class="radio" type="radio" name="ktyp" value="0" <?php if($form->getValue('ktyp') == 0 || $form->getValue('ktyp') == "") { echo "checked"; } ?>> Normál</label><br/>
 
-        <label><input class="radio" type="radio" name="ktyp" value="1" <?php if($form->getValue('ktyp') == 1) { echo "checked"; } ?>> Rablótámadás</label><br/>
+        <label><input class="radio" type="radio" name="ktyp" value="1" <?php if($form->getValue('ktyp') == 1) { echo "checked"; } ?>> <?php echo $lang['WARSIM']['Raid']; ?></label><br/>
 						<input type="hidden" name="uid" value="<?php echo $session->uid; ?>">
 					</div>
 				</td>
@@ -164,7 +167,7 @@ if(count($target) > 0) {
 	</table>
 
 
-<p class="btn"><button type="submit" value="Támadás szimulálása" name="s1" id="btn_ok"><div class="button-container"><div class="button-position"><div class="btl"><div class="btr"><div class="btc"></div></div></div><div class="bml"><div class="bmr"><div class="bmc"></div></div></div><div class="bbl"><div class="bbr"><div class="bbc"></div></div></div></div><div class="button-contents">Támadás szimulálása</div></div></button></p>
+<p class="btn"><button type="submit" value="<?php echo $lang['WARSIM']['Simulate_Attack']; ?>" name="s1" id="btn_ok"><div class="button-container"><div class="button-position"><div class="btl"><div class="btr"><div class="btc"></div></div></div><div class="bml"><div class="bmr"><div class="bmc"></div></div></div><div class="bbl"><div class="bbr"><div class="bbc"></div></div></div></div><div class="button-contents"><?php echo $lang['WARSIM']['Simulate_Attack']; ?></div></div></button></p>
 </form>
 </div>
 <div class="clear">&nbsp;</div>
