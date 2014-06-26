@@ -1618,7 +1618,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
 --
 
 INSERT INTO `%PREFIX%users` (`id`, `username`, `password`, `email`, `tribe`, `access`, `gold`, `gender`, `birthday`, `location`, `desc1`, `desc2`, `plus`, `b1`, `b2`, `b3`, `b4`, `sit1`, `sit2`, `alliance`, `sessid`, `act`, `timestamp`, `ap`, `apall`, `dp`, `dpall`, `protect`, `quest`, `fquest`, `gpack`, `cp`, `lastupdate`, `RR`, `Rc`, `ok`) VALUES
-(4, 'Multihunter', '', 'multihunter@travianx.mail', 0, 9, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 25, '1,1,1,1,1,1,1,1,1,1,1', 'gpack/travian_default/', 1, 0, 0, 0, 0),
+(4, 'Multihunter', '', 'multihunter@travianx.mail', 1, 9, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 25, '1,1,1,1,1,1,1,1,1,1,1', 'gpack/travian_default/', 1, 0, 0, 0, 0),
 (1, 'Support', '', 'support@travianx.mail', 1, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 25, '1,1,1,1,1,1,1,1,1,1,1', 'gpack/travian_default/', 1, 0, 0, 0, 0),
 (3, 'Nature', '', 'support@travianx.mail', 4, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 25, '1,1,1,1,1,1,1,1,1,1,1', 'gpack/travian_default/', 1, 0, 0, 0, 0);
 
