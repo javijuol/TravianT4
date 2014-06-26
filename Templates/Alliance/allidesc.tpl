@@ -25,6 +25,7 @@ include("alli_menu.tpl");
 <input type="hidden" name="s" value="5">
 		<textarea class="editDescription editDescription1" tabindex="1" name="be1"><?php echo stripslashes($allianceinfo['desc']); ?></textarea>
 		<textarea class="editDescription editDescription2" tabindex="2" name="be2"><?php echo stripslashes($allianceinfo['notice']); ?></textarea>		<div class="clear"></div>
+    <div class="clear"></div>
     <script type="text/javascript">
 	window.addEvent('domready', function()
 	{
