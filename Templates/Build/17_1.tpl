@@ -158,10 +158,10 @@ switch($market->onsale[$i]['gtype']) {
     echo "<td class=\"dur\">".$generator->getTimeFormat($market->onsale[$i]['duration'])."</td>";
     
     if(($market->onsale[$i]['wtype'] == 1 && $village->awood <= $market->onsale[$i]['wamt']) ||($market->onsale[$i]['wtype'] == 2 && $village->aclay <= $market->onsale[$i]['wamt']) ||($market->onsale[$i]['wtype'] == 3 && $village->airon <= $market->onsale[$i]['wamt']) ||($market->onsale[$i]['wtype'] == 4 && $village->acrop <= $market->onsale[$i]['wamt'])) {
-    echo "<td class=\"act none\">Nincs elég nyersanyag.</td></tr>";
+    echo "<td class=\"act none\">Not enough materials</td></tr>";
     }
     else if($market->merchantAvail() == 0 && $reqMerc <= $market->merchantAvail()) {
-    echo "<td class=\"act none\">Nincs elég kereskedő.</td></tr>";
+    echo "<td class=\"act none\">Not enough merchants</td></tr>";
     }
     else {
     echo "<td class=\"act\">
